@@ -1,6 +1,12 @@
 import React from "react";
 
 import './brands.scss';
+import image1 from './brand1.png';
+import image2 from './brand2.png';
+import image3 from './brand3.png';
+import image4 from './brand4.png';
+import image5 from './brand5.png';
+
 
 const Brands = () => {
   return(
@@ -11,19 +17,19 @@ const Brands = () => {
         <p className="brands-text">Brands that trust me</p>
         <div className="brands-items">
           <div className="brands-item">
-            <img src="http://katrindith.com/img/brands/brand1.png" className="brands-item__img" alt=""></img>
+            <img src={image1} className="brands-item__img" alt=""></img>
           </div>
           <div className="brands-item">
-            <img src="http://katrindith.com/img/brands/brand2.png" className="brands-item__img" alt=""></img>
+            <img src={image2} className="brands-item__img" alt=""></img>
           </div>
           <div className="brands-item">
-            <img src="http://katrindith.com/img/brands/brand5.png" className="brands-item__img" alt=""></img>
+            <img src={image5} className="brands-item__img" alt=""></img>
           </div>
           <div className="brands-item">
-            <img src="http://katrindith.com/img/brands/brand4.png" className="brands-item__img" alt=""></img>
+            <img src={image4} className="brands-item__img" alt=""></img>
           </div>
           <div className="brands-item">
-            <img src="http://katrindith.com/img/brands/brand3.png" className="brands-item__img" alt=""></img>
+            <img src={image3} className="brands-item__img" alt=""></img>
           </div>
         </div>
       </div>
