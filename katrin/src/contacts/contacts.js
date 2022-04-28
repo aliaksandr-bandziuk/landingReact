@@ -1,5 +1,7 @@
 import React from "react";
 
+import Form from "../form";
+
 import './contacts.scss';
 
 import imgfb from './001-facebook.png';
@@ -7,6 +9,11 @@ import imginst from './011-instagram.png';
 import imgtiktok from './016-tik tok.png';
 
 const Contacts = () => {
+
+  const openModal = () => {
+    console.log('click')
+  }
+
   return(
     <footer className="contacts">
     <div className="container">
@@ -19,7 +26,11 @@ const Contacts = () => {
           You are welcome!
         </p>
         <div className="footer-button">
-          <button className="footer-button__send modal__open">Send message</button>
+          <button className="footer-button__send modal__open"
+          onClick={ openModal }
+          >
+            Send message
+          </button>
         </div>
         <div className="footer-social">
           <div className="footer-social__item">

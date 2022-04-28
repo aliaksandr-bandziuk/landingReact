@@ -6,6 +6,7 @@ import About from '../about';
 import Brands from '../brands';
 import Portfolio from '../portfolio';
 import Contacts from '../contacts';
+import Form from '../form';
 
 
 import './app.scss';
@@ -19,6 +20,7 @@ const App = () => {
       <Brands/>
       <Portfolio/>
       <Contacts/>
+      <Form/>
     </div>
   )
 }
