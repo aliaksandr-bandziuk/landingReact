@@ -1,26 +1,57 @@
 import React from "react";
+import { useEffect, useRef } from "react";
 
 import './form.scss';
 
-const Form = () => {
+const Form = (props) => {
+
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const clickOutsideContent = (e) => {
+      if (e.target === modalRef.current) {
+        props.setShowModal(false)
+      }
+    }
+    window.addEventListener('click', clickOutsideContent);
+    return () => {
+      window.removeEventListener('click', clickOutsideContent);
+    }
+  }, [props])
+  
+
   return(
-  <div className="modal">
-    <div className="modal__overlay hidden"></div>
-    <div className="modal__dialog hidden">
-      <button type="button" className="modal__close modal__close-button">
-        <img src="img/other/close.png" className="modal__close-img" alt=""/>
-      </button>
-      <form action="send.php" method="POST" className="contacts-form contactas-form__modal" id="form">
-        <h4 className="form-title">What do you wanna tell me?</h4>
-        <input type="text" className="input input-name _req" placeholder="Your name" name="name"/>
-        <input type="text" className="input input-phone _req" placeholder="Your phone" name="phone"/>
-        <input type="text" className="input input-text _req" placeholder="Your message" name="message"/>
-        {/* <button type="submit" className="button form-button">Sent</button> */}
-        <input type="submit" className="button form-button" value="Sent"/>
-      </form>
+    <div ref={modalRef} className={`modal ${props.show ? 'active' : ''}`}>
+      <div className="modal__overlay"></div>
+      <div className="modal__dialog">
+        {props.children}
+      </div>
     </div>
-  </div>
   )
 }
 
 export default Form;
+
+export const ModalHeader = props => {
+  return(
+    <div className="modal__header">
+      {props.children}
+    </div>
+  )
+}
+
+export const ModalBody = props => {
+  return(
+    <div className="modal__body">
+      {props.children}
+    </div>
+  )
+}
+
+export const ModalFooter = props => {
+  return(
+    <div className="modal__footer">
+      {props.children}
+    </div>
+  )
+}
